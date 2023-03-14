@@ -4,7 +4,7 @@
   "private": true,
   "description": "Ta reda på när glassbilen kommer",
   "engines": {
-    "node": "14.16.1"
+    "node": ">16.1.1"
   },
   "type": "module",
   "author": "Lars Sjögreen",
