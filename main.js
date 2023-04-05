@@ -2,6 +2,7 @@
 import getAdressNara from "./external-services/adress-nara.js";
 import getGlassbil from "./external-services/glassbilen.js";
 import dotenv from "dotenv";
+import fs  from 'fs';
 
 dotenv.config();
 
@@ -17,6 +18,16 @@ const homeCoords = {
   long: parseFloat(process.env.long),
 };
 
+if (process.argv.length > 2) {
+  if (process.argv[2] === '--ascii') {
+    fs.readFile('glassbilenXS.txt', (err, ascii) => {
+      console.log(ascii.toString('utf8'));
+    });
+  } else {
+    console.log('Va?');
+  }
+}
+
 getGlassbil(homeCoords.lat, homeCoords.long).then((r) => {
   console.log("När kommer glassbilen?");
   r.data.forEach((el) => {
@@ -28,4 +39,5 @@ getGlassbil(homeCoords.lat, homeCoords.long).then((r) => {
       )
     );
   });
+  r.error && console.log("Vet inte. API:et svarade inte.");
 });

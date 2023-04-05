@@ -19,11 +19,17 @@ const getGlassbil = async (lat, long) => {
     method: "GET",
   };
 
-  return await fetch(glassbilURL, params)
+  var result;
+  try {
+    result = await fetch(glassbilURL, params)
     .then((res) => res.json())
     .then((data) => {
       return data;
     });
+  } catch (error) {
+    result = { data: [], error };
+  }
+  return result;
 };
 
 export default getGlassbil;
