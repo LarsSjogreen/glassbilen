@@ -4,16 +4,20 @@
   "private": true,
   "description": "Ta reda på när glassbilen kommer",
   "engines": {
-    "node": "14.16.1"
+    "node": ">16.1.1"
   },
   "type": "module",
   "author": "Lars Sjögreen",
   "license": "ISC",
+  "main": "./main.js",
+  "bin": {
+    "glassbilen": "./main.js"
+  },
   "dependencies": {
     "dotenv": "^16.0.3",
-    "eslint": "^7.27.0",
+    "eslint": "^8.39.0",
     "lodash": "^4.17.21",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^3.3.1",
     "node-fetch-with-proxy": "^0.1.6"
   }
 }
